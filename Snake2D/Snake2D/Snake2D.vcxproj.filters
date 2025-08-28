@@ -56,6 +56,9 @@
     <ClInclude Include="..\src\MainMenuScreen.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\GameplayScreen.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Snake2D.cpp">
@@ -86,6 +89,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\MainMenuScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameplayScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -149,6 +149,7 @@
     <ClInclude Include="..\src\Entity.h" />
     <ClInclude Include="..\src\Food.h" />
     <ClInclude Include="..\src\Game.h" />
+    <ClInclude Include="..\src\GameplayScreen.h" />
     <ClInclude Include="..\src\Grid.h" />
     <ClInclude Include="..\src\HUD.h" />
     <ClInclude Include="..\src\json.hpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\Food.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
+    <ClCompile Include="..\src\GameplayScreen.cpp" />
     <ClCompile Include="..\src\Grid.cpp" />
     <ClCompile Include="..\src\HUD.cpp" />
     <ClCompile Include="..\src\Snake.cpp" />

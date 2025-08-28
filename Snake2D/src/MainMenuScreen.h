@@ -1,25 +1,23 @@
 #pragma once
 #include "BaseScreen.h"
+#include "Button.h"
 #include "ConfigManager.h"
 #include "AssetManager.h"
-#include "Button.h"
-#include <SFML/Graphics.hpp>
+#include "Game.h"
 #include <vector>
-#include <functional>
+#include <memory>
+#include <iostream>
 
 class MainMenuScreen : public BaseScreen {
 private:
+    Game* m_game;                   // Pointer to main game for switching screens
     ConfigManager& m_config;
     AssetManager& m_assets;
-
-    sf::Texture* m_bgTexture = nullptr; // Screen background
-    sf::Sprite m_bgSprite;
-
     std::vector<Button> m_buttons;
-
+    sf::Text m_titleText;
+    sf::Font* m_titleFont = nullptr;
 public:
-    MainMenuScreen(ConfigManager& config, AssetManager& assets);
-
+    MainMenuScreen(Game* game, ConfigManager& config, AssetManager& assets);
     void HandleInput(sf::Event& event, sf::RenderWindow& window) override;
     void Update(sf::Time dt) override;
     void Render(sf::RenderWindow& window) override;
