@@ -34,7 +34,7 @@ private:
     bool m_gameOver = false;
 
 public:
-    GameplayScreen(ConfigManager& config, AssetManager& assets);
+    GameplayScreen();
     ~GameplayScreen();
 
     void HandleInput(sf::Event& event, sf::RenderWindow& window) override;

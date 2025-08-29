@@ -24,6 +24,10 @@ private:
     float m_currentScale = 1.f;
     float m_scaleSpeed = 10.f;
 
+protected:
+    bool m_useAbsolutePosition = false;
+    sf::Vector2f m_absolutePosition;
+
 public:
     Button() = default;
 
@@ -32,6 +36,7 @@ public:
     void SetBackgroundColors(sf::Color idle, sf::Color hover);
     void SetCallback(std::function<void()> callback);
     void SetBackgroundTexture(sf::Texture* texture);
+    void SetPosition(const sf::Vector2f& pos);
 
     void HandleInput(sf::Event& event, const sf::RenderWindow& window);
     void Update(sf::Time dt);

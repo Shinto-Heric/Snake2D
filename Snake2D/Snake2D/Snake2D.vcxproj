@@ -149,14 +149,18 @@
     <ClInclude Include="..\src\Entity.h" />
     <ClInclude Include="..\src\Food.h" />
     <ClInclude Include="..\src\Game.h" />
+    <ClInclude Include="..\src\GameOverPopup.h" />
     <ClInclude Include="..\src\GameplayScreen.h" />
     <ClInclude Include="..\src\Grid.h" />
     <ClInclude Include="..\src\HUD.h" />
+    <ClInclude Include="..\src\InstructionPopup.h" />
     <ClInclude Include="..\src\json.hpp" />
     <ClInclude Include="..\src\MainMenuScreen.h" />
     <ClInclude Include="..\src\PopupBase.h" />
+    <ClInclude Include="..\src\ScreenManager.h" />
     <ClInclude Include="..\src\SettingsPopup.h" />
     <ClInclude Include="..\src\Snake.h" />
+    <ClInclude Include="..\src\ToggleButton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\AssetManager.cpp" />
@@ -164,14 +168,18 @@
     <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\Food.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
+    <ClCompile Include="..\src\GameOverPopup.cpp" />
     <ClCompile Include="..\src\GameplayScreen.cpp" />
     <ClCompile Include="..\src\Grid.cpp" />
     <ClCompile Include="..\src\HUD.cpp" />
+    <ClCompile Include="..\src\InstructionPopup.cpp" />
     <ClCompile Include="..\src\PopupBase.cpp" />
+    <ClCompile Include="..\src\ScreenManager.cpp" />
     <ClCompile Include="..\src\SettingsPopup.cpp" />
     <ClCompile Include="..\src\Snake.cpp" />
     <ClCompile Include="..\src\Snake2D.cpp" />
     <ClCompile Include="..\src\MainMenuScreen.cpp" />
+    <ClCompile Include="..\src\ToggleButton.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

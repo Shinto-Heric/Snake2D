@@ -1,8 +1,11 @@
 #include "GameplayScreen.h"
 #include <iostream>
+#include "ScreenManager.h"
+#include "GameOverPopup.h"
 
-GameplayScreen::GameplayScreen(ConfigManager& config, AssetManager& assets)
-    : m_config(config), m_assets(assets)
+GameplayScreen::GameplayScreen()
+    : m_config(ConfigManager::GetInstance())
+    , m_assets(AssetManager::GetInstance())
 {
 
     // Init grid
@@ -113,6 +116,7 @@ void GameplayScreen::Update(sf::Time dt) {
         // --- Self Collision
         if (m_snake->CheckSelfCollision()) {
             m_gameOver = true;
+            ScreenManager::GetInstance().ShowPopup(std::make_unique<GameOverPopup>(m_foodEatenCount, m_level));
             std::cout << "Game Over! Snake collided with itself." << std::endl;
         }
     }

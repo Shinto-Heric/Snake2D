@@ -1,5 +1,4 @@
 ﻿#include "Game.h"
-#include "BaseScreen.h"
 #include "MainMenuScreen.h"
 #include <iostream>
 
@@ -12,31 +11,20 @@ Game::Game()
     m_window.create(sf::VideoMode(m_windowWidth, m_windowHeight), m_windowTitle);
     m_window.setFramerateLimit(60);
 
-    InitGame();
+    LoadAssets();
+    ScreenManager::GetInstance().Init(this);
+    // Start with MainMenuScreen
+    ScreenManager::GetInstance().SetScreen(
+        std::make_unique<MainMenuScreen>()
+    );
 }
 
-Game::~Game() {
-    // All dynamic memory for screens is handled by unique_ptr
-}
+Game::~Game() {}
 
 void Game::LoadConfig() {
     m_windowWidth = config.GetWindowWidth();
     m_windowHeight = config.GetWindowHeight();
     m_windowTitle = config.GetWindowTitle();
-}
-
-void Game::InitGame() {
-    // Load all assets first
-    LoadAssets();
-
-    // Start with Main Menu
-    SwitchToScreen(std::make_unique<MainMenuScreen>(this, config, assets));
-
-    std::cout << "Game initialized and MainMenuScreen loaded." << std::endl;
-}
-void Game::SetGameState(GameState currentState)
-{
-    m_currentState = currentState;
 }
 
 void Game::LoadAssets() {
@@ -47,9 +35,8 @@ void Game::LoadAssets() {
 void Game::LoadTextures() {
     std::vector<std::string> textureKeys = {
         "grass_grid", "snake_head", "snake_body",
-        "food", "button_bg", "music_button", "effects_button"
+        "food", "button_bg", "music_on", "effects_on","music_off", "effects_off"
     };
-
     for (auto& key : textureKeys)
         assets.LoadTexture(key, config.GetTexturePath(key));
 }
@@ -65,42 +52,26 @@ void Game::Run() {
 
     while (m_window.isOpen()) {
         sf::Time dt = clock.restart();
+        sf::Event event;
+        while (m_window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                m_window.close();
 
-        HandleEvents();
-        Update(dt);
-        Render();
+            ScreenManager::GetInstance().HandleInput(event, m_window);
+        }
+
+        ScreenManager::GetInstance().Update(dt);
+
+        m_window.clear(sf::Color::Black);
+        ScreenManager::GetInstance().Render(m_window);
+        m_window.display();
     }
 }
 
-void Game::HandleEvents() {
-    sf::Event event;
-    while (m_window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
-            m_window.close();
-
-        if (m_currentScreen)
-            m_currentScreen->HandleInput(event, m_window);
-    }
+void Game::SetGameState(GameState state) {
+    m_currentState = state;
 }
 
-void Game::Update(sf::Time dt) {
-    if (m_currentScreen)
-        m_currentScreen->Update(dt);
-}
-
-void Game::Render() {
-    m_window.clear(sf::Color::Black);
-
-    if (m_currentScreen)
-        m_currentScreen->Render(m_window);
-
-    m_window.display();
-}
-
-void Game::SwitchToScreen(std::unique_ptr<BaseScreen> newScreen) {
-    m_currentScreen = std::move(newScreen);
-}
-void Game::CloseWindow()
-{
-
+void Game::CloseWindow() {
+    m_window.close();
 }

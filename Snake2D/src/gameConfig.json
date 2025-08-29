@@ -10,8 +10,10 @@
     "food": "../assets/food.png",
     "grass_grid": "../assets/grass_grid.png",
     "button_bg": "../assets/button_background.png",
-    "music_button": "../assets/music_button.png",
-    "effects_button": "../assets/effects_button.png"
+    "music_on": "../assets/music_button/music_on.png",
+    "music_off": "../assets/music_button/music_off.png",
+    "effects_on": "../assets/sound_effects/effects_on.png",
+    "effects_off": "../assets/sound_effects/effects_off.png"
   },
   "fonts": {
     "title": "../assets/title_font.ttf",
