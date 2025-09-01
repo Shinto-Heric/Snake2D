@@ -53,7 +53,7 @@ void Game::LoadFonts() {
 }
 
 void Game::LoadSounds() {
-    std::vector<std::string> effectsKeys = {"game_over" ,"eat", "button_click", "button_toggle"};
+    std::vector<std::string> effectsKeys = { "game_over" ,"eat", "poison_eat", "button_click", "button_toggle" };
     for (auto& key : effectsKeys)
         SoundManager::GetInstance().LoadEffect(key, config.GetSoundPath(key));
 }

@@ -22,6 +22,7 @@
   },
   "sounds": {
     "eat": "../assets/sounds/eat.wav",
+    "poison_eat": "../assets/sounds/poison_eat.wav",
     "game_over": "../assets/sounds/gameover.wav",
     "bgm": "../assets/sounds/background_music.wav",
     "button_click": "../assets/sounds/button_click.wav",

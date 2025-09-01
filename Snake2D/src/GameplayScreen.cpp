@@ -59,13 +59,6 @@ void GameplayScreen::HandleInput(sf::Event& event, sf::RenderWindow& window) {
 void GameplayScreen::Update(sf::Time dt) {
     if (m_gameOver) return;
 
-    // Handle slow effect
-    if (m_slowTimer > sf::Time::Zero) {
-        m_slowTimer -= dt;
-        if (m_slowTimer <= sf::Time::Zero)
-            m_moveDelay = m_defaultMoveDelay;
-    }
-
     // Move snake
     m_moveTimer += dt;
     if (m_moveTimer >= m_moveDelay) {
@@ -75,6 +68,7 @@ void GameplayScreen::Update(sf::Time dt) {
         // --- Normal Food
         if (m_snake->GetHeadPosition() == m_foodNormal->GetGridPosition()) {
             SoundManager::GetInstance().PlayEffect("eat");
+
             m_snake->Grow();
             m_foodEatenCount++;
             m_hud->SetScore(m_foodEatenCount);
@@ -105,11 +99,10 @@ void GameplayScreen::Update(sf::Time dt) {
 
         // --- Poison Food
         if (m_foodPoison && m_snake->GetHeadPosition() == m_foodPoison->GetGridPosition()) {
+            SoundManager::GetInstance().PlayEffect("poison_eat");
             m_snake->Shrink(3);
             m_foodEatenCount -= 3;
             m_hud->SetScore(m_foodEatenCount);
-            m_moveDelay += sf::seconds(1.0f);
-            m_slowTimer = m_slowDuration;
 
             delete m_foodPoison;
             m_foodPoison = nullptr;
@@ -118,6 +111,7 @@ void GameplayScreen::Update(sf::Time dt) {
         // --- Self Collision
         if (m_snake->CheckSelfCollision()) {
             m_gameOver = true;
+            SoundManager::GetInstance().StopMusic();
             SoundManager::GetInstance().PlayEffect("game_over");
             ScreenManager::GetInstance().ShowPopup(std::make_unique<GameOverPopup>(m_foodEatenCount, m_level));
             std::cout << "Game Over! Snake collided with itself." << std::endl;

@@ -3,6 +3,7 @@
 #include "GameplayScreen.h"
 #include "MainMenuScreen.h"
 #include <iostream>
+#include "SoundManager.h"
 
 GameOverPopup::GameOverPopup(int score, int level)
     : PopupBase("Game Over"), m_score(score), m_level(level)
@@ -38,6 +39,7 @@ GameOverPopup::GameOverPopup(int score, int level)
     retryBtn.SetCallback([]() {
         ScreenManager::GetInstance().ClosePopup();
         ScreenManager::GetInstance().SwitchToGameplay();
+        SoundManager::GetInstance().PlayMusic();
         });
 
     // Quit Button
@@ -64,6 +66,7 @@ GameOverPopup::GameOverPopup(int score, int level)
     backBtn.SetCallback([]() {
         ScreenManager::GetInstance().ClosePopup();
         ScreenManager::GetInstance().SwitchToMainMenu();
+        SoundManager::GetInstance().PlayMusic();
         });
 
     m_buttons.push_back(retryBtn);
