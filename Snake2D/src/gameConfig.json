@@ -9,21 +9,23 @@
     "snake_body": "../assets/snake_body.png",
     "food": "../assets/food.png",
     "grass_grid": "../assets/grass_grid.png",
-    "button_bg": "../assets/button_background.png",
+    "button_bg": "../assets/buttons/button_background.png",
     "music_on": "../assets/music_button/music_on.png",
     "music_off": "../assets/music_button/music_off.png",
-    "effects_on": "../assets/sound_effects/effects_on.png",
-    "effects_off": "../assets/sound_effects/effects_off.png"
+    "effects_on": "../assets/buttons/effects_button/effects_on.png",
+    "effects_off": "../assets/buttons/effects_button/effects_off.png"
   },
   "fonts": {
-    "title": "../assets/title_font.ttf",
-    "button": "../assets/button_font.ttf",
-    "body": "../assets/body_font.ttf"
+    "title": "../assets/fonts/title_font.ttf",
+    "button": "../assets/fonts/button_font.ttf",
+    "body": "../assets/fonts/body_font.ttf"
   },
   "sounds": {
-    "eat": "../assets/eat.mp3",
-    "collision": "../assets/collision.mp3",
-    "bgm": "../assets/background_music.mp3"
+    "eat": "../assets/sounds/eat.wav",
+    "gameover": "../assets/sounds/gameover.wav",
+    "bgm": "../assets/sounds/background_music.wav",
+    "button_click": "../assets/sounds/button_click.wav",
+    "button_toggle": "../assets/sounds/button_toggle.wav"
   },
   "buttons": {
     "main_menu": {

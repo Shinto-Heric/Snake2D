@@ -75,31 +75,6 @@ void Button::Update(sf::Time dt) {
     m_currentScale += (m_targetScale - m_currentScale) * delta;
 }
 
-//void Button::Render(sf::RenderWindow& window) {
-//    sf::Vector2u windowSize = window.getSize();
-//    float x = static_cast<float>(windowSize.x) / 2.f;
-//    float y = static_cast<float>(m_gridPosition.y * m_cellSize);
-//
-//    // Background
-//    if (m_bgTexture) {
-//        sf::FloatRect bgBounds = m_sprite.getLocalBounds();
-//        m_sprite.setOrigin(bgBounds.width / 2.f, bgBounds.height / 2.f);
-//        m_sprite.setPosition(x, y);
-//        m_sprite.setScale(m_currentScale, m_currentScale);
-//        window.draw(m_sprite);
-//    }
-//
-//    // Text
-//    if (m_font) {
-//        sf::FloatRect textBounds = m_text.getLocalBounds();
-//        m_text.setOrigin(textBounds.left + textBounds.width / 2.f,
-//            textBounds.top + textBounds.height / 2.f);
-//        m_text.setPosition(x, y);
-//        m_text.setScale(m_currentScale, m_currentScale);
-//    }
-//
-//    window.draw(m_text);
-//}
 void Button::Render(sf::RenderWindow& window) {
     sf::Vector2f pos;
 
@@ -113,20 +88,22 @@ void Button::Render(sf::RenderWindow& window) {
         pos.y = static_cast<float>(m_gridPosition.y * m_cellSize);
     }
 
+    // Background sprite
+    if (m_bgTexture) {
+        sf::FloatRect bgBounds = m_sprite.getLocalBounds();
+        m_sprite.setOrigin(bgBounds.width / 2.f, bgBounds.height / 2.f);
+        m_sprite.setPosition(pos);
+        m_sprite.setScale(m_currentScale, m_currentScale);   // <-- apply scale
+        window.draw(m_sprite);
+    }
+
     // Center text
     if (m_font) {
         sf::FloatRect textBounds = m_text.getLocalBounds();
         m_text.setOrigin(textBounds.left + textBounds.width / 2.f,
             textBounds.top + textBounds.height / 2.f);
         m_text.setPosition(pos);
-    }
-
-    // Background sprite
-    if (m_bgTexture) {
-        sf::FloatRect bgBounds = m_sprite.getLocalBounds();
-        m_sprite.setOrigin(bgBounds.width / 2.f, bgBounds.height / 2.f);
-        m_sprite.setPosition(pos);
-        window.draw(m_sprite);
+        m_text.setScale(m_currentScale, m_currentScale);    // <-- apply scale
     }
 
     window.draw(m_text);

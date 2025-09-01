@@ -19,14 +19,15 @@ private:
 
     sf::Texture* m_bgTexture = nullptr;
 
-    // --- Animation ---
-    float m_targetScale = 1.f;
-    float m_currentScale = 1.f;
-    float m_scaleSpeed = 10.f;
+    
 
 protected:
     bool m_useAbsolutePosition = false;
     sf::Vector2f m_absolutePosition;
+    // --- Animation ---
+    float m_targetScale = 1.f;
+    float m_currentScale = 1.f;
+    float m_scaleSpeed = 10.f;
 
 public:
     Button() = default;

@@ -14,7 +14,6 @@ void ToggleButton::ApplyTexture() {
 
 void ToggleButton::SetTextures(sf::Texture* enabledTex, sf::Texture* disabledTex) {
     m_enabledTexture = enabledTex;
-    //SetBackgroundTexture(enabledTex);
     m_disabledTexture = disabledTex;
     ApplyTexture();
 }
@@ -35,6 +34,7 @@ void ToggleButton::Toggle() {
 
 void ToggleButton::Render(sf::RenderWindow& window) {
     sf::Vector2f pos;
+
     if (m_useAbsolutePosition) {
         pos = m_absolutePosition;
     }
@@ -45,13 +45,15 @@ void ToggleButton::Render(sf::RenderWindow& window) {
         pos.y = static_cast<float>(m_gridPosition.y * m_cellSize);
     }
 
-
-    // Always draw sprite (even if no m_bgTexture set)
+    // Background sprite (toggle icon)
     sf::FloatRect bgBounds = m_sprite.getLocalBounds();
     m_sprite.setOrigin(bgBounds.width / 2.f, bgBounds.height / 2.f);
     m_sprite.setPosition(pos);
+    m_sprite.setScale(m_currentScale, m_currentScale);   // ? Apply hover/hold scaling
     window.draw(m_sprite);
+
 }
+
 
 
 void ToggleButton::SetToggleCallback(std::function<void(bool)> callback) {
