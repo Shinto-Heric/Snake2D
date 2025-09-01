@@ -26,6 +26,7 @@ private:
     void LoadAssets();
     void LoadTextures();
     void LoadFonts();
+    void LoadSounds();
 
 public:
     Game();

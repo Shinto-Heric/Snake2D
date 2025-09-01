@@ -38,7 +38,7 @@ public:
 
     // One-time init to keep a pointer back to the Game
     void Init(Game* game) { m_game = game; }
-
+    Game* GetGame() const { return m_game; }
     // ----- Screen control (deferred) -----
     void SetScreen(std::unique_ptr<BaseScreen> screen); // queues screen switch
 

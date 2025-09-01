@@ -1,4 +1,5 @@
 #include "Button.h"
+#include "SoundManager.h"
 
 void Button::SetText(const std::string& text, sf::Font* font, unsigned int size) {
     m_font = font;
@@ -6,6 +7,11 @@ void Button::SetText(const std::string& text, sf::Font* font, unsigned int size)
     m_text.setString(text);
     m_text.setCharacterSize(size);
     m_text.setFillColor(m_idleColor);
+}
+
+void Button::SetClickSound(const std::string& sound)
+{
+    m_clickSound = sound;
 }
 
 void Button::SetTextColors(sf::Color idle, sf::Color hover) {
@@ -60,7 +66,11 @@ void Button::HandleInput(sf::Event& event, const sf::RenderWindow& window) {
         // Callback only on release inside button
         if (event.type == sf::Event::MouseButtonReleased &&
             event.mouseButton.button == sf::Mouse::Left) {
-            if (m_callback) m_callback();
+            if (m_callback) {
+                SoundManager::GetInstance().PlayEffect(m_clickSound);
+                m_callback();
+            }
+               
         }
     }
     else {

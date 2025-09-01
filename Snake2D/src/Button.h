@@ -28,11 +28,13 @@ protected:
     float m_targetScale = 1.f;
     float m_currentScale = 1.f;
     float m_scaleSpeed = 10.f;
+    std::string m_clickSound = "button_click";
 
 public:
     Button() = default;
 
     void SetText(const std::string& text, sf::Font* font, unsigned int size = 24);
+    void SetClickSound(const std::string& sound);
     void SetTextColors(sf::Color idle, sf::Color hover);
     void SetBackgroundColors(sf::Color idle, sf::Color hover);
     void SetCallback(std::function<void()> callback);

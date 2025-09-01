@@ -2,6 +2,7 @@
 #include <iostream>
 #include "ScreenManager.h"
 #include "GameOverPopup.h"
+#include "SoundManager.h"
 
 GameplayScreen::GameplayScreen()
     : m_config(ConfigManager::GetInstance())
@@ -73,6 +74,7 @@ void GameplayScreen::Update(sf::Time dt) {
 
         // --- Normal Food
         if (m_snake->GetHeadPosition() == m_foodNormal->GetGridPosition()) {
+            SoundManager::GetInstance().PlayEffect("eat");
             m_snake->Grow();
             m_foodEatenCount++;
             m_hud->SetScore(m_foodEatenCount);
@@ -116,6 +118,7 @@ void GameplayScreen::Update(sf::Time dt) {
         // --- Self Collision
         if (m_snake->CheckSelfCollision()) {
             m_gameOver = true;
+            SoundManager::GetInstance().PlayEffect("game_over");
             ScreenManager::GetInstance().ShowPopup(std::make_unique<GameOverPopup>(m_foodEatenCount, m_level));
             std::cout << "Game Over! Snake collided with itself." << std::endl;
         }

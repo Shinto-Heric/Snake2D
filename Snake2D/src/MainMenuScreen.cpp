@@ -3,6 +3,8 @@
 #include "ScreenManager.h"
 #include "SettingsPopup.h"
 #include "GameOverPopup.h"
+#include "ExitPopup.h"
+
 MainMenuScreen::MainMenuScreen()
     : m_config(ConfigManager::GetInstance()), m_assets(AssetManager::GetInstance())
 {
@@ -49,7 +51,7 @@ MainMenuScreen::MainMenuScreen()
     exitBtn.SetGridPosition({ 10, 16 });
     exitBtn.SetBackgroundColors(sf::Color(200, 50, 50), sf::Color(255, 100, 50));
     exitBtn.SetTextColors(sf::Color::White, sf::Color::Yellow);
-    exitBtn.SetCallback([]() { ScreenManager::GetInstance().ShowPopup(std::make_unique<GameOverPopup>(6,7)); });
+    exitBtn.SetCallback([]() { ScreenManager::GetInstance().ShowPopup(std::make_unique<ExitPopup>()); });
 
     m_buttons.push_back(playBtn);
     m_buttons.push_back(settingsBtn);

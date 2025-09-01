@@ -1,6 +1,7 @@
 ﻿#include "Game.h"
 #include "MainMenuScreen.h"
 #include <iostream>
+#include "SoundManager.h"
 
 Game::Game()
     : config(ConfigManager::GetInstance())
@@ -12,11 +13,14 @@ Game::Game()
     m_window.setFramerateLimit(60);
 
     LoadAssets();
+    LoadSounds();
     ScreenManager::GetInstance().Init(this);
     // Start with MainMenuScreen
     ScreenManager::GetInstance().SetScreen(
         std::make_unique<MainMenuScreen>()
     );
+    SoundManager::GetInstance().LoadMusic(config.GetSoundPath("bgm"));
+    SoundManager::GetInstance().PlayMusic();
 }
 
 Game::~Game() {}
@@ -30,6 +34,7 @@ void Game::LoadConfig() {
 void Game::LoadAssets() {
     LoadTextures();
     LoadFonts();
+    LoadSounds();
 }
 
 void Game::LoadTextures() {
@@ -45,6 +50,12 @@ void Game::LoadFonts() {
     std::vector<std::string> fontKeys = { "body", "button", "title" };
     for (auto& key : fontKeys)
         assets.LoadFont(key, config.GetFontPath(key));
+}
+
+void Game::LoadSounds() {
+    std::vector<std::string> effectsKeys = {"game_over" ,"eat", "button_click", "button_toggle"};
+    for (auto& key : effectsKeys)
+        SoundManager::GetInstance().LoadEffect(key, config.GetSoundPath(key));
 }
 
 void Game::Run() {

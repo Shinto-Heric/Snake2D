@@ -147,6 +147,7 @@
     <ClInclude Include="..\src\Button.h" />
     <ClInclude Include="..\src\ConfigManager.h" />
     <ClInclude Include="..\src\Entity.h" />
+    <ClInclude Include="..\src\ExitPopup.h" />
     <ClInclude Include="..\src\Food.h" />
     <ClInclude Include="..\src\Game.h" />
     <ClInclude Include="..\src\GameOverPopup.h" />
@@ -160,12 +161,14 @@
     <ClInclude Include="..\src\ScreenManager.h" />
     <ClInclude Include="..\src\SettingsPopup.h" />
     <ClInclude Include="..\src\Snake.h" />
+    <ClInclude Include="..\src\SoundManager.h" />
     <ClInclude Include="..\src\ToggleButton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\AssetManager.cpp" />
     <ClCompile Include="..\src\Button.cpp" />
     <ClCompile Include="..\src\Entity.cpp" />
+    <ClCompile Include="..\src\ExitPopup.cpp" />
     <ClCompile Include="..\src\Food.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\GameOverPopup.cpp" />
@@ -179,6 +182,7 @@
     <ClCompile Include="..\src\Snake.cpp" />
     <ClCompile Include="..\src\Snake2D.cpp" />
     <ClCompile Include="..\src\MainMenuScreen.cpp" />
+    <ClCompile Include="..\src\SoundManager.cpp" />
     <ClCompile Include="..\src\ToggleButton.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

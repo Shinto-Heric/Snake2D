@@ -1,7 +1,9 @@
 #include "ToggleButton.h"
 
 ToggleButton::ToggleButton()
-    : m_enabled(true) {}
+    : m_enabled(true){
+    SetClickSound("button_toggle");
+}
 
 void ToggleButton::ApplyTexture() {
     if (m_enabled && m_enabledTexture) {
