@@ -14,9 +14,10 @@ InstructionPopup::InstructionPopup()
     m_instructionText.setCharacterSize(24);
     m_instructionText.setFillColor(sf::Color::White);
     m_instructionText.setString(
-        "Use arrow keys or WASD to move the snake.\n"
+        "Use arrow keys or WASD to move.\n"
         "Eat food to grow longer.\n"
-        "Avoid poison and hitting yourself."
+        "Avoid poison food - costs 1 life.\n"
+        "Don't hit yourself - Game Over."
     );
 
     // Center text within popup

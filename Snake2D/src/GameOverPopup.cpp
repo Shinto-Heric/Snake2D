@@ -4,6 +4,7 @@
 #include "MainMenuScreen.h"
 #include <iostream>
 #include "SoundManager.h"
+#include "ExitPopup.h"
 
 GameOverPopup::GameOverPopup(int score, int level)
     : PopupBase("Game Over"), m_score(score), m_level(level)
@@ -17,7 +18,7 @@ GameOverPopup::GameOverPopup(int score, int level)
     m_scoreText.setFillColor(sf::Color::White);
     sf::FloatRect scoreBounds = m_scoreText.getLocalBounds();
     m_scoreText.setOrigin(scoreBounds.width / 2.f, scoreBounds.height / 2.f);
-    m_scoreText.setPosition(m_bgRect.getPosition().x, m_bgRect.getPosition().y - 150.f);
+    m_scoreText.setPosition(m_bgRect.getPosition().x, m_bgRect.getPosition().y - 125.f);
 
     // Level Text
     m_levelText.setFont(*m_font);
@@ -26,7 +27,7 @@ GameOverPopup::GameOverPopup(int score, int level)
     m_levelText.setFillColor(sf::Color::White);
     sf::FloatRect levelBounds = m_levelText.getLocalBounds();
     m_levelText.setOrigin(levelBounds.width / 2.f, levelBounds.height / 2.f);
-    m_levelText.setPosition(m_bgRect.getPosition().x, m_bgRect.getPosition().y - 110.f);
+    m_levelText.setPosition(m_bgRect.getPosition().x, m_bgRect.getPosition().y - 90.f);
 
     // Retry Button
     Button retryBtn;
@@ -35,24 +36,11 @@ GameOverPopup::GameOverPopup(int score, int level)
     retryBtn.SetText("Retry", &m_assets.GetFont("button"), 24);
     retryBtn.SetBackgroundColors(sf::Color(50, 200, 50), sf::Color(100, 255, 100));
     retryBtn.SetTextColors(sf::Color::White, sf::Color::Yellow);
-    retryBtn.SetGridPosition({ 10,12 });
+    retryBtn.SetGridPosition({ 10,13 });
     retryBtn.SetCallback([]() {
         ScreenManager::GetInstance().ClosePopup();
         ScreenManager::GetInstance().SwitchToGameplay();
         SoundManager::GetInstance().PlayMusic();
-        });
-
-    // Quit Button
-    Button quitBtn;
-    quitBtn.SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    quitBtn.SetCellSize(32);
-    quitBtn.SetText("Quit", &m_assets.GetFont("button"), 24);
-    quitBtn.SetBackgroundColors(sf::Color(200, 50, 50), sf::Color(255, 100, 50));
-    quitBtn.SetTextColors(sf::Color::White, sf::Color::Yellow);
-    quitBtn.SetGridPosition({ 8,14 });
-    quitBtn.SetCallback([]() {
-        ScreenManager::GetInstance().ClosePopup();
-        ScreenManager::GetInstance().CloseGame();
         });
 
     // Back to Main Menu Button
@@ -62,7 +50,7 @@ GameOverPopup::GameOverPopup(int score, int level)
     backBtn.SetText("Main Menu", &m_assets.GetFont("button"), 24);
     backBtn.SetBackgroundColors(sf::Color(100, 100, 200), sf::Color(150, 150, 255));
     backBtn.SetTextColors(sf::Color::White, sf::Color::Yellow);
-    backBtn.SetGridPosition({ 5,16 });
+    backBtn.SetGridPosition({ 5,15 });
     backBtn.SetCallback([]() {
         ScreenManager::GetInstance().ClosePopup();
         ScreenManager::GetInstance().SwitchToMainMenu();
@@ -70,7 +58,6 @@ GameOverPopup::GameOverPopup(int score, int level)
         });
 
     m_buttons.push_back(retryBtn);
-    m_buttons.push_back(quitBtn);
     m_buttons.push_back(backBtn);
 }
 
