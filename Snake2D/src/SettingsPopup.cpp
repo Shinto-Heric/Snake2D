@@ -15,7 +15,7 @@ SettingsPopup::SettingsPopup()
     );
     musicBtn->SetCellSize(32);
     musicBtn->SetGridPosition({ 5, 9 });
-    musicBtn->SetBackgroundColors(sf::Color(100, 100, 100), sf::Color(150, 150, 150));
+    musicBtn->SetBackgroundColors(sf::Color(70, 130, 180), sf::Color(100, 149, 237));
     musicBtn->SetToggleCallback([](bool enabled) {
         std::cout << "Music: " << (enabled ? "ON" : "OFF") << std::endl;
         });
@@ -27,7 +27,7 @@ SettingsPopup::SettingsPopup()
     );
     soundBtn->SetCellSize(32);
     soundBtn->SetGridPosition({ 5, 11 });
-    soundBtn->SetBackgroundColors(sf::Color(100, 100, 100), sf::Color(150, 150, 150));
+    soundBtn->SetBackgroundColors(sf::Color(34, 139, 34), sf::Color(50, 205, 50));
     soundBtn->SetToggleCallback([](bool enabled) {
         std::cout << "Effects: " << (enabled ? "ON" : "OFF") << std::endl;
         });
@@ -37,8 +37,8 @@ SettingsPopup::SettingsPopup()
     instructionsBtn->SetCellSize(32);
     instructionsBtn->SetText("Instructions", &m_assets.GetFont("button"), 24);
     instructionsBtn->SetGridPosition({ 5, 13 });
-    instructionsBtn->SetBackgroundColors(sf::Color(100, 100, 100), sf::Color(150, 150, 150));
-    instructionsBtn->SetTextColors(sf::Color::White, sf::Color::Yellow); 
+    instructionsBtn->SetBackgroundColors(sf::Color(255, 165, 0), sf::Color(255, 200, 0));
+    instructionsBtn->SetTextColors(sf::Color::White, sf::Color::Yellow);
     instructionsBtn->SetCallback([]() {
         ScreenManager::GetInstance().ShowPopup(
             std::make_unique<InstructionPopup>());
@@ -51,7 +51,7 @@ SettingsPopup::SettingsPopup()
     snakeColorBtn->SetCellSize(32);
     snakeColorBtn->SetText("Snake Color", &m_assets.GetFont("button"), 24);
     snakeColorBtn->SetGridPosition({ 5, 15 });
-    snakeColorBtn->SetBackgroundColors(sf::Color(100, 100, 100), sf::Color(150, 150, 150));
+    snakeColorBtn->SetBackgroundColors(sf::Color(138, 43, 226), sf::Color(160, 32, 240));
     snakeColorBtn->SetTextColors(sf::Color::White, sf::Color::Yellow);
     snakeColorBtn->SetCallback([]() { std::cout << "Change snake color\n"; });
 
@@ -61,7 +61,7 @@ SettingsPopup::SettingsPopup()
     closeButton->SetCellSize(32);
     closeButton->SetText("Back", &m_assets.GetFont("button"), 24);
     closeButton->SetGridPosition({ 5, 17 });
-    closeButton->SetBackgroundColors(sf::Color(100, 100, 100), sf::Color(150, 150, 150));
+    closeButton->SetBackgroundColors(sf::Color(178, 34, 34), sf::Color(220, 20, 60));
     closeButton->SetTextColors(sf::Color::White, sf::Color::Yellow);
     closeButton->SetCallback([this]() { ClosePopup(); });
 
