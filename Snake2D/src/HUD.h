@@ -8,10 +8,11 @@ private:
 
     sf::Text m_scoreText;
     sf::Text m_levelText;
+    sf::Texture* m_heartTexture;
 
     int m_score = 0;
     int m_level = 1;
-
+    int m_lives = 0;
     sf::Vector2f m_scorePosition;
     sf::Vector2f m_levelPosition;
 
@@ -22,6 +23,8 @@ public:
 
     void SetScore(int score);
     void SetLevel(int level);
+    void SetLives(int lives);
+
 
     void Render(sf::RenderWindow& window);
 };

@@ -1,5 +1,6 @@
 #include "HUD.h"
 #include <sstream>
+#include "AssetManager.h"
 
 HUD::HUD(sf::Font* font, const sf::Vector2f& scorePos, const sf::Vector2f& levelPos)
     : m_font(font), m_scorePosition(scorePos), m_levelPosition(levelPos)
@@ -17,6 +18,7 @@ HUD::HUD(sf::Font* font, const sf::Vector2f& scorePos, const sf::Vector2f& level
         m_levelText.setPosition(m_levelPosition);
         m_levelText.setString("Level: 1");
     }
+    m_heartTexture = &AssetManager::GetInstance().GetTexture("heart");
 }
 
 void HUD::SetScore(int score) {
@@ -33,7 +35,24 @@ void HUD::SetLevel(int level) {
     m_levelText.setString(ss.str());
 }
 
+void HUD::SetLives(int lives) {
+    m_lives = lives;
+}
+
 void HUD::Render(sf::RenderWindow& window) {
     window.draw(m_scoreText);
     window.draw(m_levelText);
+    // Draw hearts for lives
+    if (m_heartTexture) {
+        float startX = 0.f;          // Starting X position for first heart
+        float startY = 75;          // Y position for hearts
+        float spacing = 10.f;         // Space between hearts
+
+        for (int i = 0; i < m_lives; ++i) {
+            sf::Sprite heartSprite;
+            heartSprite.setTexture(*m_heartTexture);
+            heartSprite.setPosition(startX + i * (m_heartTexture->getSize().x + spacing), startY);
+            window.draw(heartSprite);
+        }
+    }
 }

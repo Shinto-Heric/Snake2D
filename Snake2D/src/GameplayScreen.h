@@ -22,6 +22,9 @@ private:
     int m_level = 1;
     const int m_pointsPerLevel = 5;
 
+    int m_lives = 3;              // Initial lives
+    
+
     // Snake timing
     sf::Time m_moveTimer = sf::Time::Zero;
     sf::Time m_defaultMoveDelay = sf::seconds(0.2f);
@@ -39,6 +42,7 @@ public:
 
     void HandleInput(sf::Event& event, sf::RenderWindow& window) override;
     void Update(sf::Time dt) override;
+    void TriggerGameOver();
     void Render(sf::RenderWindow& window) override;
 
     bool IsGameOver() const { return m_gameOver; }

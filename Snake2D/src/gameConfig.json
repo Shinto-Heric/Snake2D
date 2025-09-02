@@ -9,6 +9,7 @@
     "snake_body": "../assets/snake_body.png",
     "food": "../assets/food.png",
     "grass_grid": "../assets/grass_grid.png",
+    "heart": "../assets/heart.png",
     "button_bg": "../assets/buttons/button_background.png",
     "music_on": "../assets/buttons/music_button/music_on.png",
     "music_off": "../assets/buttons/music_button/music_off.png",

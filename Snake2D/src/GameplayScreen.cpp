@@ -14,7 +14,7 @@ GameplayScreen::GameplayScreen()
 
     // Init HUD
     m_hud = new HUD(&m_assets.GetFont("body"));
-
+    m_hud->SetLives(m_lives);
     // Init snake
     m_snake = new Snake(
         32, 24, 32,
@@ -101,22 +101,33 @@ void GameplayScreen::Update(sf::Time dt) {
         if (m_foodPoison && m_snake->GetHeadPosition() == m_foodPoison->GetGridPosition()) {
             SoundManager::GetInstance().PlayEffect("poison_eat");
             m_snake->Shrink(3);
-            m_foodEatenCount -= 3;
             m_hud->SetScore(m_foodEatenCount);
 
             delete m_foodPoison;
             m_foodPoison = nullptr;
+            m_hud->SetLives(--m_lives);
+
+            if (m_lives <= 0) {
+                TriggerGameOver();
+            }
         }
 
         // --- Self Collision
         if (m_snake->CheckSelfCollision()) {
-            m_gameOver = true;
-            SoundManager::GetInstance().StopMusic();
-            SoundManager::GetInstance().PlayEffect("game_over");
-            ScreenManager::GetInstance().ShowPopup(std::make_unique<GameOverPopup>(m_foodEatenCount, m_level));
+            TriggerGameOver();
             std::cout << "Game Over! Snake collided with itself." << std::endl;
         }
     }
+}
+
+void GameplayScreen::TriggerGameOver()
+{
+    m_gameOver = true;
+    SoundManager::GetInstance().StopMusic();
+    SoundManager::GetInstance().PlayEffect("game_over");
+    ScreenManager::GetInstance().ShowPopup(
+        std::make_unique<GameOverPopup>(m_foodEatenCount, m_level)
+    );
 }
 
 void GameplayScreen::Render(sf::RenderWindow& window) {

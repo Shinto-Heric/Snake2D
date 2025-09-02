@@ -39,7 +39,7 @@ void Game::LoadAssets() {
 
 void Game::LoadTextures() {
     std::vector<std::string> textureKeys = {
-        "grass_grid", "snake_head", "snake_body",
+        "grass_grid", "snake_head", "snake_body", "heart", 
         "food", "button_bg", "music_on", "effects_on","music_off", "effects_off"
     };
     for (auto& key : textureKeys)
