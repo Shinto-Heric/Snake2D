@@ -13,74 +13,105 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\configs">
+      <UniqueIdentifier>{15c27e3c-8c64-417a-a2cc-ba03d1554996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes">
+      <UniqueIdentifier>{59475702-aad1-4edc-9fe7-d61e92b27d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes\nlohmann">
+      <UniqueIdentifier>{744fb3b3-fafd-4072-8cfa-f990a2e82986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{adee19e0-55fb-4200-a5a0-db5065762636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{6a916df3-de88-4640-a4c6-cfdceba2c7aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameobjects">
+      <UniqueIdentifier>{a771a9f0-c55f-483d-9bcd-40c2c9cf9436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\screens">
+      <UniqueIdentifier>{0a2149aa-df18-4948-ad94-f81b3c83e3b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\popups">
+      <UniqueIdentifier>{444b2f02-f6da-4af0-95c9-2df073d26653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes\core">
+      <UniqueIdentifier>{042d5710-c4a5-4c65-b5ff-ce2d427fb335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes\ui">
+      <UniqueIdentifier>{c39ae195-004c-4495-9cb7-a8182abaa6a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes\screens">
+      <UniqueIdentifier>{29b7c31a-1388-4460-a98d-ad464e91f2e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes\popups">
+      <UniqueIdentifier>{4898c526-d382-4ddb-beb3-15ab6d56a605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes\gameobjects">
+      <UniqueIdentifier>{cf14d2a1-6cf8-4cf2-bc19-c76362ffc774}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\src\gameConfig.json">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\json.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\src\include\nlohmann\json.hpp">
+      <Filter>includes\nlohmann</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ConfigManager.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\src\include\core\AssetManager.h">
+      <Filter>includes\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\core\ScreenManager.h">
+      <Filter>includes\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\core\SoundManager.h">
+      <Filter>includes\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\screens\BaseScreen.h">
+      <Filter>includes\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\screens\GameplayScreen.h">
+      <Filter>includes\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\screens\MainMenuScreen.h">
+      <Filter>includes\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\popups\ExitPopup.h">
+      <Filter>includes\popups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\popups\GameOverPopup.h">
+      <Filter>includes\popups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\popups\InstructionPopup.h">
+      <Filter>includes\popups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\popups\PopupBase.h">
+      <Filter>includes\popups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\popups\SettingsPopup.h">
+      <Filter>includes\popups</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\core\Entity.h">
+      <Filter>includes\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\gameobjects\Food.h">
+      <Filter>includes\gameobjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\gameobjects\Grid.h">
+      <Filter>includes\gameobjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\gameobjects\Snake.h">
+      <Filter>includes\gameobjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\ui\Button.h">
+      <Filter>includes\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\ui\HUD.h">
+      <Filter>includes\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\ui\ToggleButton.h">
+      <Filter>includes\ui</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Game.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Grid.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\AssetManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Snake.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Food.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\HUD.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Button.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\BaseScreen.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\MainMenuScreen.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameplayScreen.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\PopupBase.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SettingsPopup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ScreenManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\InstructionPopup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\GameOverPopup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ToggleButton.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SoundManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ExitPopup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Entity.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -88,59 +119,64 @@
     <ClCompile Include="..\src\Snake2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\core\AssetManager.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\ScreenManager.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\SoundManager.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\screens\GameplayScreen.cpp">
+      <Filter>Source Files\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\screens\MainMenuScreen.cpp">
+      <Filter>Source Files\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\popups\ExitPopup.cpp">
+      <Filter>Source Files\popups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\popups\GameOverPopup.cpp">
+      <Filter>Source Files\popups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\popups\InstructionPopup.cpp">
+      <Filter>Source Files\popups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\popups\PopupBase.cpp">
+      <Filter>Source Files\popups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\popups\SettingsPopup.cpp">
+      <Filter>Source Files\popups</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Entity.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameobjects\Food.cpp">
+      <Filter>Source Files\gameobjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameobjects\Grid.cpp">
+      <Filter>Source Files\gameobjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameobjects\Snake.cpp">
+      <Filter>Source Files\gameobjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\Button.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\HUD.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ui\ToggleButton.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Grid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\AssetManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Snake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Food.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HUD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MainMenuScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameplayScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\PopupBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SettingsPopup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ScreenManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\InstructionPopup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameOverPopup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ToggleButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\SoundManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ExitPopup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\config\gameConfig.json">
+      <Filter>Resource Files\configs</Filter>
+    </None>
   </ItemGroup>
 </Project>

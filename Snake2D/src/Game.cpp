@@ -1,12 +1,11 @@
 ﻿#include "Game.h"
-#include "MainMenuScreen.h"
+#include "screens/MainMenuScreen.h"
 #include <iostream>
-#include "SoundManager.h"
+#include "core/SoundManager.h"
 
 Game::Game()
-    : config(ConfigManager::GetInstance())
+    : config(GameConfigManager::GetInstance())
     , assets(AssetManager::GetInstance())
-    , m_currentState(GameState::MainMenu)
 {
     LoadConfig();
     m_window.create(sf::VideoMode(m_windowWidth, m_windowHeight), m_windowTitle);
@@ -77,10 +76,6 @@ void Game::Run() {
         ScreenManager::GetInstance().Render(m_window);
         m_window.display();
     }
-}
-
-void Game::SetGameState(GameState state) {
-    m_currentState = state;
 }
 
 void Game::CloseWindow() {

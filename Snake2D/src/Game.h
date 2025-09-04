@@ -1,15 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "ConfigManager.h"
-#include "AssetManager.h"
-#include "ScreenManager.h"
-
-enum class GameState {
-    MainMenu,
-    Playing,
-    Paused,
-    GameOver
-};
+#include "core/GameConfigManager.h"
+#include "core/AssetManager.h"
+#include "core/ScreenManager.h"
 
 class Game {
 private:
@@ -18,9 +11,8 @@ private:
     int m_windowHeight;
     std::string m_windowTitle;
 
-    ConfigManager& config;
+    GameConfigManager& config;
     AssetManager& assets;
-    GameState m_currentState;
 
     void LoadConfig();
     void LoadAssets();
@@ -33,6 +25,5 @@ public:
     ~Game();
 
     void Run();
-    void SetGameState(GameState state);
     void CloseWindow();
 };

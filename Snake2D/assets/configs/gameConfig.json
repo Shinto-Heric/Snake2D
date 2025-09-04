@@ -1,0 +1,45 @@
+{
+  "window": {
+    "width": 1024,
+    "height": 768,
+    "title": "Snake 2D"
+  },
+  "grid": {
+    "nCols": 32,
+    "nRows": 24,
+    "cellSize": 32
+  },
+  "textures": {
+    "snake_head": "../assets/images/snake_head.png",
+    "snake_body": "../assets/images/snake_body.png",
+    "food": "../assets/images/food.png",
+    "grass_grid": "../assets/images/grass_grid.png",
+    "heart": "../assets/images/heart.png",
+    "button_bg": "../assets/buttons/button_background.png",
+    "music_on": "../assets/buttons/music_button/music_on.png",
+    "music_off": "../assets/buttons/music_button/music_off.png",
+    "effects_on": "../assets/buttons/effects_button/effects_on.png",
+    "effects_off": "../assets/buttons/effects_button/effects_off.png"
+  },
+  "fonts": {
+    "title": "../assets/fonts/title_font.ttf",
+    "button": "../assets/fonts/button_font.ttf",
+    "body": "../assets/fonts/body_font.ttf"
+  },
+  "sounds": {
+    "eat": "../assets/sounds/eat.wav",
+    "poison_eat": "../assets/sounds/poison_eat.wav",
+    "game_over": "../assets/sounds/gameover.wav",
+    "bgm": "../assets/sounds/background_music.wav",
+    "button_click": "../assets/sounds/button_click.wav",
+    "button_toggle": "../assets/sounds/button_toggle.wav"
+  },
+  "buttons": {
+    "main_menu": {
+      "start": "Start",
+      "settings": "Settings",
+      "instructions": "Instructions",
+      "exit": "Exit"
+    }
+  }
+ }

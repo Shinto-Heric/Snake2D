@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;$(SolutionDir)src\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;$(SolutionDir)src\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +110,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;$(SolutionDir)src\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;$(SolutionDir)src\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,51 +139,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\src\gameConfig.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\AssetManager.h" />
-    <ClInclude Include="..\src\BaseScreen.h" />
-    <ClInclude Include="..\src\Button.h" />
-    <ClInclude Include="..\src\ConfigManager.h" />
-    <ClInclude Include="..\src\Entity.h" />
-    <ClInclude Include="..\src\ExitPopup.h" />
-    <ClInclude Include="..\src\Food.h" />
     <ClInclude Include="..\src\Game.h" />
-    <ClInclude Include="..\src\GameOverPopup.h" />
-    <ClInclude Include="..\src\GameplayScreen.h" />
-    <ClInclude Include="..\src\Grid.h" />
-    <ClInclude Include="..\src\HUD.h" />
-    <ClInclude Include="..\src\InstructionPopup.h" />
-    <ClInclude Include="..\src\json.hpp" />
-    <ClInclude Include="..\src\MainMenuScreen.h" />
-    <ClInclude Include="..\src\PopupBase.h" />
-    <ClInclude Include="..\src\ScreenManager.h" />
-    <ClInclude Include="..\src\SettingsPopup.h" />
-    <ClInclude Include="..\src\Snake.h" />
-    <ClInclude Include="..\src\SoundManager.h" />
-    <ClInclude Include="..\src\ToggleButton.h" />
+    <ClInclude Include="..\src\include\core\AssetManager.h" />
+    <ClInclude Include="..\src\include\core\Entity.h" />
+    <ClInclude Include="..\src\include\core\ScreenManager.h" />
+    <ClInclude Include="..\src\include\core\SoundManager.h" />
+    <ClInclude Include="..\src\include\gameobjects\Food.h" />
+    <ClInclude Include="..\src\include\gameobjects\Grid.h" />
+    <ClInclude Include="..\src\include\gameobjects\Snake.h" />
+    <ClInclude Include="..\src\include\nlohmann\json.hpp" />
+    <ClInclude Include="..\src\include\popups\ExitPopup.h" />
+    <ClInclude Include="..\src\include\popups\GameOverPopup.h" />
+    <ClInclude Include="..\src\include\popups\InstructionPopup.h" />
+    <ClInclude Include="..\src\include\popups\PopupBase.h" />
+    <ClInclude Include="..\src\include\popups\SettingsPopup.h" />
+    <ClInclude Include="..\src\include\screens\BaseScreen.h" />
+    <ClInclude Include="..\src\include\screens\GameplayScreen.h" />
+    <ClInclude Include="..\src\include\screens\MainMenuScreen.h" />
+    <ClInclude Include="..\src\include\ui\Button.h" />
+    <ClInclude Include="..\src\include\ui\HUD.h" />
+    <ClInclude Include="..\src\include\ui\ToggleButton.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\AssetManager.cpp" />
-    <ClCompile Include="..\src\Button.cpp" />
-    <ClCompile Include="..\src\Entity.cpp" />
-    <ClCompile Include="..\src\ExitPopup.cpp" />
-    <ClCompile Include="..\src\Food.cpp" />
+    <ClCompile Include="..\src\core\AssetManager.cpp" />
+    <ClCompile Include="..\src\core\Entity.cpp" />
+    <ClCompile Include="..\src\core\ScreenManager.cpp" />
+    <ClCompile Include="..\src\core\SoundManager.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
-    <ClCompile Include="..\src\GameOverPopup.cpp" />
-    <ClCompile Include="..\src\GameplayScreen.cpp" />
-    <ClCompile Include="..\src\Grid.cpp" />
-    <ClCompile Include="..\src\HUD.cpp" />
-    <ClCompile Include="..\src\InstructionPopup.cpp" />
-    <ClCompile Include="..\src\PopupBase.cpp" />
-    <ClCompile Include="..\src\ScreenManager.cpp" />
-    <ClCompile Include="..\src\SettingsPopup.cpp" />
-    <ClCompile Include="..\src\Snake.cpp" />
+    <ClCompile Include="..\src\gameobjects\Food.cpp" />
+    <ClCompile Include="..\src\gameobjects\Grid.cpp" />
+    <ClCompile Include="..\src\gameobjects\Snake.cpp" />
+    <ClCompile Include="..\src\popups\ExitPopup.cpp" />
+    <ClCompile Include="..\src\popups\GameOverPopup.cpp" />
+    <ClCompile Include="..\src\popups\InstructionPopup.cpp" />
+    <ClCompile Include="..\src\popups\PopupBase.cpp" />
+    <ClCompile Include="..\src\popups\SettingsPopup.cpp" />
+    <ClCompile Include="..\src\screens\GameplayScreen.cpp" />
+    <ClCompile Include="..\src\screens\MainMenuScreen.cpp" />
     <ClCompile Include="..\src\Snake2D.cpp" />
-    <ClCompile Include="..\src\MainMenuScreen.cpp" />
-    <ClCompile Include="..\src\SoundManager.cpp" />
-    <ClCompile Include="..\src\ToggleButton.cpp" />
+    <ClCompile Include="..\src\ui\Button.cpp" />
+    <ClCompile Include="..\src\ui\HUD.cpp" />
+    <ClCompile Include="..\src\ui\ToggleButton.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\config\gameConfig.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
