@@ -1,5 +1,5 @@
-#include "popups/PopupBase.h"
 #include "core/ScreenManager.h"
+#include "popups/PopupBase.h"
 
 PopupBase::PopupBase(const std::string& title)
     : m_title(title)

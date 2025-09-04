@@ -1,7 +1,8 @@
-﻿#include "Game.h"
-#include "screens/MainMenuScreen.h"
-#include <iostream>
+﻿#include <iostream>
+
+#include "Game.h"
 #include "core/SoundManager.h"
+#include "screens/MainMenuScreen.h"
 
 Game::Game()
     : config(GameConfigManager::GetInstance())

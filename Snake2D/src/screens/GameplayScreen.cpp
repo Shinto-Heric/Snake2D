@@ -1,7 +1,7 @@
 #include "screens/GameplayScreen.h"
 #include "core/ScreenManager.h"
-#include "popups/GameOverPopup.h"
 #include "core/SoundManager.h"
+#include "popups/GameOverPopup.h"
 
 #include <iostream>
 

@@ -1,4 +1,5 @@
 #include "gameobjects/Snake.h"
+
 float DirectionToRotation(Direction dir) {
     switch (dir) {
     case Direction::Up:    return -90.f;  // sprite points right by default
