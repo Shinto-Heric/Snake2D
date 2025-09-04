@@ -46,7 +46,12 @@ Main Menu
 ![Main Menu](Screenshots/mainmenu.gif)
 
 Settings Popup
-![Main Menu](Screenshots/settingspopup.gif)
+![Settings Popup](Screenshots/settingspopup.gif)
+
+Instruction Popup
+![Instruction Popup](Screenshots/instructionpopup.gif)
+
+
 
 In-Game  
 ![Gameplay](gameplay.png)
