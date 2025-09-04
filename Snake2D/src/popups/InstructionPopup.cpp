@@ -1,7 +1,7 @@
-#include "popups/InstructionPopup.h"
 #include "core/ScreenManager.h"
 #include "core/GameConfigManager.h"
 #include "core/AssetManager.h"
+#include "popups/InstructionPopup.h"
 
 InstructionPopup::InstructionPopup()
     : PopupBase("Instructions")

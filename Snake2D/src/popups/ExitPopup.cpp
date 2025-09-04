@@ -1,7 +1,8 @@
+#include <iostream>
+
+#include "Game.h"
 #include "popups/ExitPopup.h"
 #include "core/ScreenManager.h"
-#include "Game.h"
-#include <iostream>
 #include "screens/GameplayScreen.h"
 
 ExitPopup::ExitPopup()

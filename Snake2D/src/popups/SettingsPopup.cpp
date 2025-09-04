@@ -1,10 +1,11 @@
 #include <iostream>
-#include "popups/SettingsPopup.h"
+
 #include "core/AssetManager.h"
 #include "core/ScreenManager.h"
-#include "popups/InstructionPopup.h"
-#include "ui/ToggleButton.h"
 #include "core/SoundManager.h"
+#include "popups/InstructionPopup.h"
+#include "popups/SettingsPopup.h"
+#include "ui/ToggleButton.h"
 
 SettingsPopup::SettingsPopup()
     : PopupBase("Settings")

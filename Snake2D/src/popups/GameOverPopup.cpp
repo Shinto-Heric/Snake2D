@@ -1,9 +1,10 @@
-#include "popups/GameOverPopup.h"
-#include "core/ScreenManager.h"
 #include <iostream>
+
 #include "core/SoundManager.h"
+#include "core/ScreenManager.h"
 #include "screens/MainMenuScreen.h"
 #include "screens/GameplayScreen.h"
+#include "popups/GameOverPopup.h"
 
 GameOverPopup::GameOverPopup(int score, int level)
     : PopupBase("Game Over"), m_score(score), m_level(level)
