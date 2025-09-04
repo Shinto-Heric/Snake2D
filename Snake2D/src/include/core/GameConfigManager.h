@@ -47,6 +47,8 @@ public:
     int GetColumnSize() const { return configJson["grid"]["nCols"]; }
     int GetRowSize() const { return configJson["grid"]["nRows"]; }
     int GetCellSize() const { return configJson["grid"]["cellSize"]; }
+    int GetGridWidth() const { return configJson["grid"]["width"]; }
+    int GetGridHeight() const { return configJson["grid"]["height"]; }
 
     // -------------------------
     // Textures

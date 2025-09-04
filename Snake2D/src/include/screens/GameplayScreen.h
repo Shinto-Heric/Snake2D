@@ -7,6 +7,10 @@
 #include "gameobjects/Food.h"
 #include "ui/HUD.h"
 
+static constexpr int POINTS_PER_LEVEL = 5;
+static constexpr int POISON_FOOD_INTERVAL = 5;
+static constexpr int SNAKE_SHRINK_SIZE = 3;
+
 class GameplayScreen : public BaseScreen {
 private:
     GameConfigManager& m_config;
@@ -20,8 +24,7 @@ private:
 
     int m_foodEatenCount = 0;
     int m_level = 1;
-    const int m_pointsPerLevel = 5;
-
+    
     int m_lives = 3;              // Initial lives
     
 

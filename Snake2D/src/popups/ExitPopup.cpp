@@ -10,7 +10,6 @@ ExitPopup::ExitPopup()
     // --- Quit Button (Red) ---
     auto quitBtn = std::make_unique<Button>();
     quitBtn->SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    quitBtn->SetCellSize(32);
     quitBtn->SetText("YES", &m_assets.GetFont("button"), 24);
     quitBtn->SetBackgroundColors(sf::Color(200, 50, 50), sf::Color(255, 100, 100));
     quitBtn->SetTextColors(sf::Color::White, sf::Color::Yellow);
@@ -23,13 +22,12 @@ ExitPopup::ExitPopup()
     // Optional: Back to Main Menu
     auto menuBtn = std::make_unique<Button>();
     menuBtn->SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    menuBtn->SetCellSize(32);
     menuBtn->SetText("NO", &m_assets.GetFont("button"), 24);
     menuBtn->SetBackgroundColors(sf::Color(50, 50, 200), sf::Color(100, 100, 255));
     menuBtn->SetTextColors(sf::Color::White, sf::Color::Yellow);
     menuBtn->SetGridPosition({ 5, 13 });
     menuBtn->SetCallback([]() {
-        ScreenManager::GetInstance().SetScreen(std::make_unique<GameplayScreen>());
+        ScreenManager::GetInstance().ClosePopup();
         });
 
     m_buttons.push_back(std::move(quitBtn));

@@ -31,7 +31,6 @@ GameOverPopup::GameOverPopup(int score, int level)
     // Retry Button
     Button retryBtn;
     retryBtn.SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    retryBtn.SetCellSize(32);
     retryBtn.SetText("Retry", &m_assets.GetFont("button"), 24);
     retryBtn.SetBackgroundColors(sf::Color(50, 200, 50), sf::Color(100, 255, 100));
     retryBtn.SetTextColors(sf::Color::White, sf::Color::Yellow);
@@ -45,7 +44,6 @@ GameOverPopup::GameOverPopup(int score, int level)
     // Back to Main Menu Button
     Button backBtn;
     backBtn.SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    backBtn.SetCellSize(32);
     backBtn.SetText("Main Menu", &m_assets.GetFont("button"), 24);
     backBtn.SetBackgroundColors(sf::Color(100, 100, 200), sf::Color(150, 150, 255));
     backBtn.SetTextColors(sf::Color::White, sf::Color::Yellow);

@@ -32,7 +32,6 @@ InstructionPopup::InstructionPopup()
 
     Button closeButton;
     m_closeButton.SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    m_closeButton.SetCellSize(32);
     m_closeButton.SetText("Back", &m_assets.GetFont("button"), 24);
     m_closeButton.SetGridPosition({ 5, 17 });
     m_closeButton.SetBackgroundColors(sf::Color(178, 34, 34), sf::Color(220, 20, 60));

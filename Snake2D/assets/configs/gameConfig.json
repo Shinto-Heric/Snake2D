@@ -7,6 +7,8 @@
   "grid": {
     "nCols": 32,
     "nRows": 24,
+    "width": 32,
+    "height": 24,
     "cellSize": 32
   },
   "textures": {

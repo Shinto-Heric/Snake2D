@@ -1,8 +1,9 @@
 #include "screens/GameplayScreen.h"
-#include <iostream>
 #include "core/ScreenManager.h"
 #include "popups/GameOverPopup.h"
 #include "core/SoundManager.h"
+
+#include <iostream>
 
 GameplayScreen::GameplayScreen()
     : m_config(GameConfigManager::GetInstance())
@@ -23,7 +24,7 @@ GameplayScreen::GameplayScreen()
     );
 
     // Init normal food
-    m_foodNormal = new Food(m_config.GetColumnSize(), m_config.GetRowSize(), &m_assets.GetTexture("food"));
+    m_foodNormal = new Food(m_config.GetGridWidth(), m_config.GetGridHeight(), &m_assets.GetTexture("food"));
 
     std::cout << "GameplayScreen initialized." << std::endl;
 }
@@ -86,7 +87,7 @@ void GameplayScreen::HandleNormalFood() {
 }
 
 void GameplayScreen::HandleLevelUp() {
-    if (m_foodEatenCount % m_pointsPerLevel != 0)
+    if (m_foodEatenCount % POINTS_PER_LEVEL != 0)
         return;
 
     m_level++;
@@ -104,8 +105,8 @@ void GameplayScreen::HandlePoisonSpawn() {
         m_foodPoison = nullptr;
     }
 
-    if (m_foodEatenCount % 5 == 0 && !m_foodPoison) {
-        m_foodPoison = new Food(32, 24, &m_assets.GetTexture("food"), FoodType::Poison);
+    if (m_foodEatenCount % POISON_FOOD_INTERVAL == 0 && !m_foodPoison) {
+        m_foodPoison = new Food(m_config.GetGridWidth(), m_config.GetGridHeight(), &m_assets.GetTexture("food"), FoodType::Poison);
         m_foodPoison->Respawn(m_snake->GetOccupiedPositions());
     }
 }
@@ -115,7 +116,7 @@ void GameplayScreen::HandlePoisonFood() {
         return;
 
     SoundManager::GetInstance().PlayEffect("poison_eat");
-    m_snake->Shrink(3);
+    m_snake->Shrink(SNAKE_SHRINK_SIZE);
 
     delete m_foodPoison;
     m_foodPoison = nullptr;

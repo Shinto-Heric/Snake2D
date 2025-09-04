@@ -175,7 +175,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\assets\config\gameConfig.json">
+    <None Include="..\assets\configs\gameConfig.json">
       <Filter>Resource Files\configs</Filter>
     </None>
   </ItemGroup>
