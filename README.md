@@ -46,7 +46,7 @@ Main Menu
 ![Main Menu](Screenshots/mainmenu.gif)
 
 Settings Popup
-![Main Menu](Screenshots/settingpopup.gif)
+![Main Menu](Screenshots/settingspopup.gif)
 
 In-Game  
 ![Gameplay](gameplay.png)
