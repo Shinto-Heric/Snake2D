@@ -6,11 +6,11 @@ Snake 2D is a classic snake game built in C++ using SFML. Grow your snake by eat
 
 ## 📌 Table of Contents
 
-- [Features](#features)
-- [Gameplay & Controls](#gameplay--controls)
-- [Screenshots](#screenshots)
-- [Project Structure](#project-structure)
-- [Dependencies](#dependencies)
+- [Features](#-features)
+- [Gameplay & Controls](#-gameplay--controls)
+- [Screenshots](#-screenshots)
+- [Project Structure](#-project-structure)
+- [Dependencies](#-dependencies)
 
 ---
 
