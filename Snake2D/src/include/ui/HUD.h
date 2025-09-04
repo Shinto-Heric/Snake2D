@@ -18,6 +18,10 @@ private:
 
     sf::Color m_textColor = sf::Color::White;
 
+    float startX = 0.f;          // Starting X position for first heart
+    float startY = 75;          // Y position for hearts
+    float spacing = 10.f;         // Space between hearts
+
 public:
     HUD(sf::Font* font, const sf::Vector2f& scorePos = { 10.f, 10.f }, const sf::Vector2f& levelPos = { 10.f, 40.f });
 

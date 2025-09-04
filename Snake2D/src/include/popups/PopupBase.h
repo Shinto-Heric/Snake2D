@@ -1,9 +1,10 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+
 #include "screens/BaseScreen.h"
 #include "ui/Button.h"
 #include "core/GameConfigManager.h"
 #include "core/AssetManager.h"
-#include <SFML/Graphics.hpp>
 
 class PopupBase : public BaseScreen {
 protected:

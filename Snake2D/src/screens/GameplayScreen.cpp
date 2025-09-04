@@ -17,7 +17,7 @@ GameplayScreen::GameplayScreen()
     m_hud->SetLives(m_lives);
     // Init snake
     m_snake = new Snake(
-        32, 24, 32,
+        m_config.GetColumnSize(), m_config.GetRowSize(), m_config.GetCellSize(),
         &m_assets.GetTexture("snake_head"),
         &m_assets.GetTexture("snake_body")
     );
@@ -59,65 +59,79 @@ void GameplayScreen::HandleInput(sf::Event& event, sf::RenderWindow& window) {
 void GameplayScreen::Update(sf::Time dt) {
     if (m_gameOver) return;
 
-    // Move snake
     m_moveTimer += dt;
     if (m_moveTimer >= m_moveDelay) {
         m_moveTimer = sf::Time::Zero;
         m_snake->Move();
 
-        // --- Normal Food
-        if (m_snake->GetHeadPosition() == m_foodNormal->GetGridPosition()) {
-            SoundManager::GetInstance().PlayEffect("eat");
-
-            m_snake->Grow();
-            m_foodEatenCount++;
-            m_hud->SetScore(m_foodEatenCount);
-            m_foodNormal->Respawn(m_snake->GetOccupiedPositions());
-
-            // Level up
-            if (m_foodEatenCount % m_pointsPerLevel == 0) {
-                m_level++;
-                m_hud->SetLevel(m_level);
-                m_moveDelay -= m_speedIncrement;
-                m_defaultMoveDelay = m_moveDelay;
-                if (m_moveDelay < m_minMoveDelay)
-                    m_moveDelay = m_minMoveDelay;
-            }
-
-            // Remove poison food if exists
-            if (m_foodPoison) {
-                delete m_foodPoison;
-                m_foodPoison = nullptr;
-            }
-
-            // Spawn poison food every 5 foods
-            if (m_foodEatenCount % 5 == 0 && !m_foodPoison) {
-                m_foodPoison = new Food(32, 24, &m_assets.GetTexture("food"), FoodType::Poison);
-                m_foodPoison->Respawn(m_snake->GetOccupiedPositions());
-            }
-        }
-
-        // --- Poison Food
-        if (m_foodPoison && m_snake->GetHeadPosition() == m_foodPoison->GetGridPosition()) {
-            SoundManager::GetInstance().PlayEffect("poison_eat");
-            m_snake->Shrink(3);
-            m_hud->SetScore(m_foodEatenCount);
-
-            delete m_foodPoison;
-            m_foodPoison = nullptr;
-            m_hud->SetLives(--m_lives);
-
-            if (m_lives <= 0) {
-                TriggerGameOver();
-            }
-        }
-
-        // --- Self Collision
-        if (m_snake->CheckSelfCollision()) {
-            TriggerGameOver();
-            std::cout << "Game Over! Snake collided with itself." << std::endl;
-        }
+        HandleNormalFood();
+        HandlePoisonFood();
+        HandleSelfCollision();
     }
+}
+
+void GameplayScreen::HandleNormalFood() {
+    if (m_snake->GetHeadPosition() != m_foodNormal->GetGridPosition())
+        return;
+
+    SoundManager::GetInstance().PlayEffect("eat");
+
+    m_snake->Grow();
+    m_foodEatenCount++;
+    m_hud->SetScore(m_foodEatenCount);
+    m_foodNormal->Respawn(m_snake->GetOccupiedPositions());
+
+    HandleLevelUp();
+    HandlePoisonSpawn();
+}
+
+void GameplayScreen::HandleLevelUp() {
+    if (m_foodEatenCount % m_pointsPerLevel != 0)
+        return;
+
+    m_level++;
+    m_hud->SetLevel(m_level);
+
+    m_moveDelay -= m_speedIncrement;
+    m_defaultMoveDelay = m_moveDelay;
+    if (m_moveDelay < m_minMoveDelay)
+        m_moveDelay = m_minMoveDelay;
+}
+
+void GameplayScreen::HandlePoisonSpawn() {
+    if (m_foodPoison) {
+        delete m_foodPoison;
+        m_foodPoison = nullptr;
+    }
+
+    if (m_foodEatenCount % 5 == 0 && !m_foodPoison) {
+        m_foodPoison = new Food(32, 24, &m_assets.GetTexture("food"), FoodType::Poison);
+        m_foodPoison->Respawn(m_snake->GetOccupiedPositions());
+    }
+}
+
+void GameplayScreen::HandlePoisonFood() {
+    if (!m_foodPoison || m_snake->GetHeadPosition() != m_foodPoison->GetGridPosition())
+        return;
+
+    SoundManager::GetInstance().PlayEffect("poison_eat");
+    m_snake->Shrink(3);
+
+    delete m_foodPoison;
+    m_foodPoison = nullptr;
+
+    m_hud->SetLives(--m_lives);
+
+    if (m_lives <= 0) {
+        TriggerGameOver();
+    }
+}
+
+void GameplayScreen::HandleSelfCollision() {
+    if (!m_snake->CheckSelfCollision()) return;
+
+    TriggerGameOver();
+    std::cout << "Game Over! Snake collided with itself." << std::endl;
 }
 
 void GameplayScreen::TriggerGameOver()

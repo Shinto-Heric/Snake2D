@@ -44,10 +44,6 @@ void HUD::Render(sf::RenderWindow& window) {
     window.draw(m_levelText);
     // Draw hearts for lives
     if (m_heartTexture) {
-        float startX = 0.f;          // Starting X position for first heart
-        float startY = 75;          // Y position for hearts
-        float spacing = 10.f;         // Space between hearts
-
         for (int i = 0; i < m_lives; ++i) {
             sf::Sprite heartSprite;
             heartSprite.setTexture(*m_heartTexture);

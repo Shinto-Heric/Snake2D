@@ -6,9 +6,12 @@
 #include "popups/PopupBase.h"
 
 class Game;
+//class BaseScreen;
+//class PopupBase;
 
-// Central manager for one active screen and (optionally) one active popup.
+// Central manager for one active screen and one active popup.
 // All transitions are deferred to avoid destroying objects mid-frame.
+
 class ScreenManager {
 private:
     // Active
@@ -39,6 +42,7 @@ public:
     // One-time init to keep a pointer back to the Game
     void Init(Game* game) { m_game = game; }
     Game* GetGame() const { return m_game; }
+
     // ----- Screen control (deferred) -----
     void SetScreen(std::unique_ptr<BaseScreen> screen); // queues screen switch
 
@@ -50,7 +54,6 @@ public:
         m_requestClosePopup = true;
     }
 
-    // Convenience (if you want explicit names; remove if unused)
     void CloseGame();
 
     // ----- Popup control (deferred) -----

@@ -15,7 +15,6 @@ SettingsPopup::SettingsPopup()
         &m_assets.GetTexture("music_on"),
         &m_assets.GetTexture("music_off")
     );
-    musicBtn->SetCellSize(32);
     musicBtn->SetGridPosition({ 5, 10 });
     musicBtn->SetBackgroundColors(sf::Color(70, 130, 180), sf::Color(100, 149, 237));
     musicBtn->SetToggleCallback([](bool enabled) {
@@ -29,7 +28,6 @@ SettingsPopup::SettingsPopup()
         &m_assets.GetTexture("effects_on"),
         &m_assets.GetTexture("effects_off")
     );
-    soundBtn->SetCellSize(32);
     soundBtn->SetGridPosition({ 5, 12 });
     soundBtn->SetBackgroundColors(sf::Color(34, 139, 34), sf::Color(50, 205, 50));
     soundBtn->SetToggleCallback([](bool enabled) {
@@ -42,7 +40,6 @@ SettingsPopup::SettingsPopup()
     // Instructions Button
     auto instructionsBtn = std::make_unique<Button>();
     instructionsBtn->SetBackgroundTexture(&m_assets.GetTexture("button_bg"));
-    instructionsBtn->SetCellSize(32);
     instructionsBtn->SetText("Instructions", &m_assets.GetFont("button"), 24);
     instructionsBtn->SetGridPosition({ 5, 14 });
     instructionsBtn->SetBackgroundColors(sf::Color(255, 165, 0), sf::Color(255, 200, 0));

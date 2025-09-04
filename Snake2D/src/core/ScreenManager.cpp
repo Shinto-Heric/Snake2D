@@ -1,9 +1,6 @@
 #include "Game.h"
 #include "core/ScreenManager.h"
 
-#include <iostream>
-
-// -------------------- Internals --------------------
 
 void ScreenManager::ProcessTransitions() {
     // Close popup request first
@@ -21,7 +18,6 @@ void ScreenManager::ProcessTransitions() {
     // also discard any popup (already handled by m_requestClosePopup above).
     if (m_nextScreen) {
         m_currentScreen = std::move(m_nextScreen);
-        // (popups already handled above)
     }
 }
 

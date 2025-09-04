@@ -45,5 +45,10 @@ public:
     void TriggerGameOver();
     void Render(sf::RenderWindow& window) override;
 
+    void HandleNormalFood();
+    void HandleLevelUp();
+    void HandlePoisonSpawn();
+    void HandlePoisonFood();
+    void HandleSelfCollision();
     bool IsGameOver() const { return m_gameOver; }
 };
