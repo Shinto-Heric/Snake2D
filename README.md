@@ -65,23 +65,26 @@ Click the image below to watch the gameplay video 👇:
 
 | Folder / File                     | Description                                                   |
 |----------------------------------|---------------------------------------------------------------|
+| `Snake2D.cpp`                      | Contains `main()`, entry point of the program                |
 | `Game.cpp / Game.h`               | Core game loop and initialization                             |
-| `screens/MainMenuScreen.cpp/h`    | Main menu with buttons and animated title                     |
-| `screens/GameplayScreen.cpp/h`    | Handles gameplay, snake, food, and HUD                        |
-| `ui/HUD.cpp/h`                     | Displays score, level, and lives                               |
-| `gameobjects/Snake.cpp/h`          | Snake movement, growth, and collision                         |
-| `gameobjects/Food.cpp/h`           | Normal and poison food behavior                                |
-| `popups/PopupBase.cpp/h`           | Base class for all popups                                      |
-| `popups/GameOverPopup.cpp/h`       | Game over popup with retry/main menu                           |
-| `popups/ExitPopup.cpp/h`           | Exit confirmation popup                                        |
-| `popups/InstructionPopup.cpp/h`    | Instructions popup                                            |
-| `popups/SettingsPopup.cpp/h`       | Music/sound toggles and instructions                           |
-| `core/AssetManager.cpp/h`          | Manages textures, fonts, and assets                            |
-| `core/SoundManager.cpp/h`          | Handles music and sound effects                                 |
-| `core/ScreenManager.cpp/h`         | Manages active screen and popups                                |
-| `core/GameConfigManager.h`         | Holds game settings and paths                                   |
-| `ui/Button.cpp/h`                  | Generic clickable buttons                                       |
-| `ui/ToggleButton.cpp/h`            | Toggle buttons for settings                                     |
+| `core/AssetManager.cpp/h`          | Loads and manages textures, fonts, and other assets           |
+| `core/SoundManager.cpp/h`          | Handles music and sound effects                               |
+| `core/ScreenManager.cpp/h`         | Manages current screen and active popups                      |
+| `core/GameConfigManager.h`         | Stores game settings, paths, and configuration values        |
+| `core/Entity.cpp/h`         | Represents drawable/movable objects (snake segments, etc.)   |
+| `screens/MainMenuScreen.cpp/h`    | Main menu with buttons, animated title, and navigation       |
+| `screens/GameplayScreen.cpp/h`    | Handles gameplay, snake, food, HUD, and game logic           |
+| `popups/PopupBase.cpp/h`           | Base class for all popups                                     |
+| `popups/GameOverPopup.cpp/h`       | Game over popup with retry and main menu options             |
+| `popups/ExitPopup.cpp/h`           | Exit confirmation popup                                       |
+| `popups/InstructionPopup.cpp/h`    | Instructions popup with controls guide                        |
+| `popups/SettingsPopup.cpp/h`       | Music/sound toggles and instruction button                   |
+| `gameobjects/Snake.cpp/h`          | Snake movement, growth, collision, and rendering             |
+| `gameobjects/Food.cpp/h`           | Normal and poison food behavior                               |
+| `gameobjects/Grid.cpp/h`           | Draws the game grid and cells                                  |
+| `ui/Button.cpp/h`                  | Generic clickable buttons                                     |
+| `ui/ToggleButton.cpp/h`            | Toggle buttons for settings (music/effects)                  |
+| `ui/HUD.cpp/h`                     | Displays score, level, and lives on screen                   |
 
 ---
 
@@ -90,5 +93,6 @@ Click the image below to watch the gameplay video 👇:
 - C++14 or later
 - SFML 2.6+
 - Visual Studio 2022
-
+- [nlohmann/json.hpp](Snake2D/src/include/nlohmann/json.hpp) – (JSON library for configuration and data handling)
+  
 ---
