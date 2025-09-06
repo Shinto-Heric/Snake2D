@@ -12,6 +12,7 @@ Snake 2D is a classic snake game built in C++ using SFML. Grow your snake by eat
 - [Gameplay Video](#-gameplay-video)
 - [Project Structure](#-project-structure)
 - [Dependencies](#-dependencies)
+- [Building with CMake](#-building-with-cmake)
 
 ---
 
@@ -96,4 +97,39 @@ Click the image below to watch the gameplay video 👇:
 - Visual Studio 2022
 - [nlohmann/json.hpp](Snake2D/src/include/nlohmann/json.hpp) – (JSON library for configuration and data handling)
   
+---
+
+## 🛠 Building with CMake
+
+- Step 1: Clone the repository
+
+```
+git clone https://github.com/Shinto-Heric/AsteroidEscape.git
+cd AsteroidEscape
+```
+
+- Step 2: Create a build folder
+
+```
+mkdir build
+cd build
+```
+
+- Step 3: Configure the project
+
+```
+cmake ..
+```
+
+- Step 4: Build the project
+
+```
+cmake --build . --config Release
+
+# NOTE :-
+# Use Debug instead of Release to build in Debug mode
+# The .exe will be in build/Debug or build/Release depending on your configuration
+# No manual copying of DLLs or Assets is needed since CMake handles it
+```
+
 ---
