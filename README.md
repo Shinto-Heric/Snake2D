@@ -104,8 +104,8 @@ Click the image below to watch the gameplay video 👇:
 - Step 1: Clone the repository
 
 ```
-git clone https://github.com/Shinto-Heric/AsteroidEscape.git
-cd AsteroidEscape
+git clone https://github.com/Shinto-Heric/Snake2D.git
+cd Snake2D
 ```
 
 - Step 2: Create a build folder
