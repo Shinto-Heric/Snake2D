@@ -11,6 +11,7 @@ Snake 2D is a classic snake game built in C++ using SFML. Grow your snake by eat
 - [Screenshots](#-screenshots)
 - [Gameplay Video](#-gameplay-video)
 - [Project Structure](#-project-structure)
+- [Platform Support](#-platform-support)
 - [Dependencies](#-dependencies)
 - [Building with CMake](#-building-with-cmake)
 
@@ -90,6 +91,18 @@ Click the image below to watch the gameplay video 👇:
 
 ---
 
+## 💻 Platform Support
+
+Currently, **Snake 2D** can only be built and run on **Windows** using Visual Studio and CMake.  
+The provided CMake configuration is tailored for Windows and includes logic for copying SFML DLLs automatically.  
+
+### macOS / Linux
+- Building is not supported out of the box.  
+- You would need to install SFML via your system’s package manager and update the `CMakeLists.txt` to remove Windows-specific DLL handling.  
+- Cross-platform support may be added in the future.
+
+---
+
 ## ⚙ Dependencies
 
 - C++14 or later
@@ -100,6 +113,10 @@ Click the image below to watch the gameplay video 👇:
 ---
 
 ## 🛠 Building with CMake
+
+⚠️ Currently, the build setup is only supported on **Windows**. Please follow the steps below.  
+For macOS/Linux, additional changes to the CMakeLists.txt are required. Please refer to the [Platform Support](#-platform-support) section.
+
 
 - Step 1: Clone the repository
 
